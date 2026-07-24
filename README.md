@@ -18,11 +18,15 @@ Prefer to do it by hand? `SETUP.md` is plain markdown with the exact commands â€
 
 ## Updating
 
-```bash
-git submodule update --remote .agent-scaffold
+Give [`UPDATE.md`](./UPDATE.md) to your coding agent and ask it to update the scaffold. It pulls the latest submodule commit and, if you're on the copy path, refreshes the baseline while preserving your project-specific additions.
+
+Copy-paste prompt:
+
+```
+Fetch https://raw.githubusercontent.com/Kramoon/agent-scaffold/main/UPDATE.md and follow its instructions to update the agent-scaffold baseline in this repository.
 ```
 
-If you're on the Claude-only import path, that's the whole update. If you're on the copy path, also re-run `cp .agent-scaffold/AGENTS.md AGENTS.md` and reapply any project-specific edits that got overwritten.
+Prefer to do it by hand? `git submodule update --remote .agent-scaffold` pulls the latest commit. If you're on the Claude-only import path, that's the whole update. If you're on the copy path, also refresh the content above the `## Project-specific additions` heading in `AGENTS.md` with the new `.agent-scaffold/AGENTS.md`, and reapply any edits that got overwritten.
 
 ## Adding project-specific rules
 
