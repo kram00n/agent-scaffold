@@ -1,4 +1,4 @@
-# aiscaffold
+# agent-scaffold
 
 Baseline `AGENTS.md` for AI coding agents (Claude Code, Codex, and others), meant to be dropped into every new project as a git submodule.
 
@@ -23,7 +23,7 @@ Baseline rules: see `.agent-scaffold/AGENTS.md` — read and follow it first.
 
 ```bash
 git add .gitmodules .agent-scaffold AGENTS.md
-git commit -m "feat: add aiscaffold AGENTS.md"
+git commit -m "feat: add agent-scaffold AGENTS.md"
 ```
 
 ## Updating
