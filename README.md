@@ -6,50 +6,9 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 
 ## Setup
 
-Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory. Start by adding the submodule:
+Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and commit the result.
 
-```bash
-git submodule add https://github.com/Kramoon/agent-scaffold.git .agent-scaffold
-```
-
-Claude Code only reads `CLAUDE.md`, not `AGENTS.md` ([per its docs](https://code.claude.com/docs/en/memory#agentsmd)), and it's the only tool that understands `@path` imports — other tools like Codex or Cursor read `AGENTS.md` directly and treat `@` as plain text. Pick the path that matches what you use:
-
-### Claude Code only
-
-Import the baseline so Claude expands it automatically at session start, and symlink `CLAUDE.md` to pick up the same chain:
-
-```markdown
-# AGENTS.md
-
-@.agent-scaffold/AGENTS.md
-
-## Project-specific additions
-- ...
-```
-
-```bash
-ln -s AGENTS.md CLAUDE.md
-```
-
-(On Windows, symlinks need Administrator privileges or Developer Mode. Use a real `CLAUDE.md` containing `@AGENTS.md` instead if that's a problem.)
-
-Updates propagate automatically — `git submodule update --remote .agent-scaffold` is all you need; there's nothing else to re-run, since the import resolves fresh every session.
-
-### Codex, Cursor, or a mix of agents
-
-Non-Claude tools don't expand `@` imports, so give them the actual text instead of a reference:
-
-```bash
-cp .agent-scaffold/AGENTS.md AGENTS.md
-ln -s AGENTS.md CLAUDE.md   # so Claude Code reads the same file too
-```
-
-This works for every tool that reads `AGENTS.md` as plain text, Claude Code included. The tradeoff: it's a copy, not a live reference, so re-run the `cp` (and reapply any project-specific edits) after updating the submodule — nothing refreshes on its own.
-
-```bash
-git add .gitmodules .agent-scaffold AGENTS.md CLAUDE.md
-git commit -m "feat: add agent-scaffold AGENTS.md"
-```
+Prefer to do it by hand? `SETUP.md` is plain markdown with the exact commands — open it and follow along yourself.
 
 ## Updating
 
