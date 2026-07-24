@@ -6,13 +6,24 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 
 ## Usage
 
-Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory — so add the submodule and symlink the file to the root:
+Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory. Add the submodule, then create a root `AGENTS.md` that points at it:
 
 ```bash
 git submodule add https://github.com/<you>/aiscaffold.git .agent-scaffold
-ln -s .agent-scaffold/AGENTS.md AGENTS.md
+```
+
+```markdown
+# AGENTS.md
+
+Baseline rules: see `.agent-scaffold/AGENTS.md` — read and follow it first.
+
+## Project-specific additions
+- ...
+```
+
+```bash
 git add .gitmodules .agent-scaffold AGENTS.md
-git commit -m "Add aiscaffold AGENTS.md"
+git commit -m "feat: add aiscaffold AGENTS.md"
 ```
 
 ## Updating
@@ -23,11 +34,4 @@ git submodule update --remote .agent-scaffold
 
 ## Adding project-specific rules
 
-`AGENTS.md` is a symlink into the shared submodule, so it can't be edited in place without editing the shared file itself. If a project needs its own rules on top of the baseline, break the symlink and edit a real copy:
-
-```bash
-rm AGENTS.md
-cp .agent-scaffold/AGENTS.md AGENTS.md
-```
-
-After that, `AGENTS.md` is a normal file you can extend freely — but future updates to this scaffold will need to be re-merged in by hand instead of picked up automatically via `git submodule update`.
+The root `AGENTS.md` is a real file, not a symlink — it just points at the shared baseline. Add project-specific rules directly to it, under the reference line. The baseline in `.agent-scaffold/` stays untouched and keeps updating independently via `git submodule update --remote`, so there's nothing to re-merge by hand.
