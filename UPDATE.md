@@ -10,7 +10,7 @@ Instructions for an AI coding agent updating this scaffold in a repository that 
    ```bash
    git submodule update --remote .agent-scaffold
    ```
-   If this reports no change, the scaffold is already current — tell the user that and stop.
+   Then check `git status --short .agent-scaffold`. If it prints nothing, the scaffold is already at the latest commit — tell the user that and stop.
 
 3. **Check which path this repo uses**, by looking at the root `AGENTS.md`:
    - If it contains the line `@.agent-scaffold/AGENTS.md`, this is the **Claude Code import path** — nothing else to do. The import resolves fresh from `.agent-scaffold/AGENTS.md` every session, so the update is already complete.

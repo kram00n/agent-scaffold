@@ -2,7 +2,7 @@
 
 Baseline `AGENTS.md` for AI coding agents (Claude Code, Codex, and others), meant to be dropped into every new project as a git submodule.
 
-Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md). Section 1 (Docker-only workflow) is this repo's own addition.
+Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md). Section 1 (Docker-only workflow) and Section 6 (Conventional Commits) are this repo's own additions.
 
 ## Setup
 
@@ -31,6 +31,8 @@ Prefer to do it by hand? `git submodule update --remote .agent-scaffold` pulls t
 ## Adding project-specific rules
 
 Add rules directly to your project's root `AGENTS.md`, below the baseline — whether that's the `@import` line or the copied text. The scaffold in `.agent-scaffold/` stays untouched either way.
+
+If you're on the copy path, keep the `## Project-specific additions` heading intact: [`UPDATE.md`](./UPDATE.md) looks for that exact heading to know where the baseline ends and your own content starts. Renaming or removing it doesn't break anything immediately, but it stops the automated merge from finding the boundary on the next update.
 
 ## License
 
