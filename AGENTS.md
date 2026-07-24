@@ -73,6 +73,15 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
+## 6. Conventional Commits
+
+**Every commit message follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).**
+
+- Format: `<type>[optional scope]: <description>`, e.g. `fix(auth): handle expired refresh tokens`.
+- Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`, `perf`.
+- Breaking changes: append `!` after the type/scope, or add a `BREAKING CHANGE:` footer.
+- Description is imperative mood, lowercase, no trailing period.
+
 ---
 
 **These guidelines are working if:** nothing runs on the host, fewer unnecessary changes show up in diffs, fewer rewrites happen due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
