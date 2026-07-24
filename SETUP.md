@@ -34,12 +34,12 @@ Instructions for an AI coding agent installing this scaffold into a repository. 
    ```
    Tell the user this copy won't auto-update: after `git submodule update --remote .agent-scaffold`, the `cp` needs to be re-run and any project-specific edits reapplied.
 
-4. **Commit with a [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) message:**
+4. **Stage the files, then stop and confirm before committing:**
    ```bash
    git add .gitmodules .agent-scaffold AGENTS.md CLAUDE.md
-   git commit -m "feat: add agent-scaffold AGENTS.md"
    ```
+   Show the user the proposed [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) message (e.g. `feat: add agent-scaffold AGENTS.md`) and the list of staged files. Get explicit confirmation before running `git commit`.
 
-5. **Don't push without asking.** Setup changes repo state and history — confirm with the user before pushing, same as any other commit.
+5. **Don't push without asking.** Setup changes repo state and history — confirm with the user before running `git push`.
 
 6. **Report back**: which path you chose and why, and point the user at [README.md](./README.md) for how to update the scaffold later or add further project-specific rules.

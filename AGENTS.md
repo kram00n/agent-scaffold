@@ -84,6 +84,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Breaking changes: append `!` after the type/scope, or add a `BREAKING CHANGE:` footer.
 - Description is imperative mood, lowercase, no trailing period.
 - Before committing, stop and show the user the proposed commit message and the list of files staged. Get explicit confirmation before running `git commit`.
+- Before pushing, stop and get explicit confirmation from the user. Never run `git push` unprompted.
 
 ---
 
