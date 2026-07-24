@@ -6,7 +6,7 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 
 ## Usage
 
-Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory. Add the submodule, then create a root `AGENTS.md` that points at it:
+Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory. Add the submodule, then create a root `AGENTS.md` that imports it:
 
 ```bash
 git submodule add https://github.com/Kramoon/agent-scaffold.git .agent-scaffold
@@ -15,14 +15,24 @@ git submodule add https://github.com/Kramoon/agent-scaffold.git .agent-scaffold
 ```markdown
 # AGENTS.md
 
-Baseline rules: see `.agent-scaffold/AGENTS.md` — read and follow it first.
+@.agent-scaffold/AGENTS.md
 
 ## Project-specific additions
 - ...
 ```
 
+The `@path` syntax is a [Claude Code import](https://code.claude.com/docs/en/memory#import-additional-files) — Claude expands it in place at session start, so the baseline is loaded automatically, not just when the agent happens to follow a "go read this" instruction. Tools that don't recognize `@` imports will see it as plain text; open `.agent-scaffold/AGENTS.md` manually if yours doesn't auto-expand.
+
+Claude Code specifically reads `CLAUDE.md`, not `AGENTS.md` ([per its docs](https://code.claude.com/docs/en/memory#agentsmd)) — add a symlink so it picks up the same chain:
+
 ```bash
-git add .gitmodules .agent-scaffold AGENTS.md
+ln -s AGENTS.md CLAUDE.md
+```
+
+(On Windows, symlinks need Administrator privileges or Developer Mode. Use a real `CLAUDE.md` containing `@AGENTS.md` instead if that's a problem.)
+
+```bash
+git add .gitmodules .agent-scaffold AGENTS.md CLAUDE.md
 git commit -m "feat: add agent-scaffold AGENTS.md"
 ```
 
