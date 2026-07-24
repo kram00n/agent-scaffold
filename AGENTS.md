@@ -4,12 +4,14 @@ Baseline instructions for AI coding agents (Claude Code, Codex, and others) work
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
-## 1. Docker Only — No Local Anything
+## 1. Docker Only — Project Code Never Runs on the Host
 
-**Everything runs inside Docker. There is no local install or execution path.**
+**The project's own code, dependencies, and tooling never touch the host. Only they run inside Docker.**
+
+This applies to the project itself — its dependencies, its app code, its tests, its linters. It does not apply to host orchestration tools like `git`, `gh`, or the `docker`/`docker compose` CLI itself — those are expected to run directly.
 
 - No local installs. Never run `npm install`, `pip install`, `bundle install`, or similar on the host. Dependencies are installed inside the image via `Dockerfile` / `docker-compose.yml`.
-- No local execution. Never run the app, a script, a linter, or a REPL directly on the host. Everything runs via `docker compose run`, `docker compose exec`, or `docker run`.
+- No local execution of project code. Never run the app, a project script, a linter, or a REPL directly on the host. Everything runs via `docker compose run`, `docker compose exec`, or `docker run`.
 - No local testing. Tests run inside a container (e.g. `docker compose run --rm app <test command>`), never with a host-installed test runner.
 - If no `Dockerfile` / `docker-compose.yml` exists yet, create one first. Don't work around a missing Docker setup by falling back to local commands — fix the Docker setup instead.
 - Use the project's existing compose services and commands rather than inventing new invocation patterns. Ask if the right service or command is unclear.
@@ -84,4 +86,4 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-**These guidelines are working if:** nothing runs on the host, fewer unnecessary changes show up in diffs, fewer rewrites happen due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+**These guidelines are working if:** project code never runs outside Docker, fewer unnecessary changes show up in diffs, fewer rewrites happen due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
