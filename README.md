@@ -8,6 +8,12 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 
 Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and commit the result.
 
+Copy-paste prompt:
+
+```
+Fetch https://raw.githubusercontent.com/Kramoon/agent-scaffold/main/SETUP.md and follow its instructions to install the agent-scaffold baseline into this repository.
+```
+
 Prefer to do it by hand? `SETUP.md` is plain markdown with the exact commands — open it and follow along yourself.
 
 ## Updating
