@@ -31,3 +31,7 @@ Prefer to do it by hand? `git submodule update --remote .agent-scaffold` pulls t
 ## Adding project-specific rules
 
 Add rules directly to your project's root `AGENTS.md`, below the baseline — whether that's the `@import` line or the copied text. The scaffold in `.agent-scaffold/` stays untouched either way.
+
+## License
+
+[MIT](./LICENSE)
