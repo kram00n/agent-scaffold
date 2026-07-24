@@ -6,7 +6,7 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 
 ## Setup
 
-Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and commit the result.
+Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and stage the result — it'll stop and show you the proposed commit before committing, and won't push without asking.
 
 Copy-paste prompt:
 
