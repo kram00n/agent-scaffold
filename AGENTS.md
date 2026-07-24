@@ -83,6 +83,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`, `perf`.
 - Breaking changes: append `!` after the type/scope, or add a `BREAKING CHANGE:` footer.
 - Description is imperative mood, lowercase, no trailing period.
+- Before committing, stop and show the user the proposed commit message and the list of files staged. Get explicit confirmation before running `git commit`.
 
 ---
 
