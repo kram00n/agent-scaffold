@@ -4,7 +4,7 @@ Instructions for an AI coding agent installing this scaffold into a repository. 
 
 ## Steps
 
-1. **Check for conflicts first.** If the repo already has an `AGENTS.md` or `CLAUDE.md`, stop and ask the user before overwriting either — don't clobber existing instructions.
+1. **Check for conflicts first.** If the repo already has an `AGENTS.md` or `CLAUDE.md`, stop and ask the user before overwriting either — don't clobber existing instructions. Also check whether `.agent-scaffold/` already exists; if it does and isn't already this submodule, stop and ask the user how to proceed instead of letting `git submodule add` fail on it.
 
 2. **Add the submodule:**
    ```bash
@@ -27,9 +27,10 @@ Instructions for an AI coding agent installing this scaffold into a repository. 
    ```
    (Windows: symlinks need Administrator privileges or Developer Mode — use a real `CLAUDE.md` containing `@AGENTS.md` instead.)
 
-   **Codex, Cursor, or a mix of agents** — copy the baseline instead, since non-Claude tools don't expand `@` imports:
+   **Codex, Cursor, or a mix of agents** — copy the baseline instead, since non-Claude tools don't expand `@` imports. Append the `## Project-specific additions` heading yourself — a plain `cp` won't include it, and [`UPDATE.md`](./UPDATE.md) needs that exact heading later to know where the baseline ends and project-specific content begins:
    ```bash
    cp .agent-scaffold/AGENTS.md AGENTS.md
+   printf '\n## Project-specific additions\n- ...\n' >> AGENTS.md
    ln -s AGENTS.md CLAUDE.md
    ```
    Tell the user this copy won't auto-update: after `git submodule update --remote .agent-scaffold`, the `cp` needs to be re-run and any project-specific edits reapplied.
@@ -42,4 +43,4 @@ Instructions for an AI coding agent installing this scaffold into a repository. 
 
 5. **Don't push without asking.** Setup changes repo state and history — confirm with the user before running `git push`.
 
-6. **Report back**: which path you chose and why, and point the user at [README.md](./README.md) for how to update the scaffold later or add further project-specific rules.
+6. **Report back**: which path you chose and why, and point the user at `.agent-scaffold/README.md` (the scaffold's own README, now present in the repo) for how to update the scaffold later or add further project-specific rules.
