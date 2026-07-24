@@ -9,7 +9,7 @@ Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://r
 Agent tools look for `AGENTS.md` at a project's root, but a submodule lives in a subdirectory. Add the submodule, then create a root `AGENTS.md` that points at it:
 
 ```bash
-git submodule add https://github.com/<you>/aiscaffold.git .agent-scaffold
+git submodule add https://github.com/Kramoon/agent-scaffold.git .agent-scaffold
 ```
 
 ```markdown
