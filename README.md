@@ -2,7 +2,7 @@
 
 Baseline `AGENTS.md` for AI coding agents (Claude Code, Codex, and others), meant to be dropped into every new project as a git submodule.
 
-Sections 2-5 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md). Section 1 (Docker-only workflow) and Section 6 (Conventional Commits) are this repo's own additions.
+Sections 2-4 and 7 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md). Sections 5-6 are adapted from [an AGENTS.md list shared by Marcos Hernanz](https://x.com/MarcosHernanz/status/2083954734487212511). Section 1 (Docker-only workflow) and Section 8 (Conventional Commits and agent attribution) are this repo's own additions.
 
 ## Setup
 
