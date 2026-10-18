@@ -6,7 +6,7 @@ Sections 2-4 and 7 are adapted from [Andrej Karpathy's CLAUDE.md guidelines](htt
 
 ## Setup
 
-Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and stage the result — it'll stop and show you the proposed commit before committing, and won't push without asking.
+Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or point it at the raw URL — and ask it to install this scaffold into your repository. It'll add the submodule, pick the right `AGENTS.md`/`CLAUDE.md` wiring for the tools you use (Claude Code alone, or Codex/Cursor/a mix), and stage the result. It will show you the proposed commit for confirmation; if the requested workflow includes a push, the same confirmation covers the stated destination.
 
 Copy-paste prompt:
 
@@ -18,7 +18,9 @@ Prefer to do it by hand? `SETUP.md` is plain markdown with the exact commands �
 
 ## Updating
 
-Give [`UPDATE.md`](./UPDATE.md) to your coding agent and ask it to update the scaffold. It pulls the latest submodule commit and, if you're on the copy path, refreshes the baseline while preserving your project-specific additions.
+When an agent starts work in a project using this scaffold, it checks for an update if the last successful check was at least seven days ago in that checkout. If an update is available, it updates the submodule and refreshes copied baseline instructions while preserving project-specific additions. Updates are left uncommitted for review and take effect in a new agent session. This happens only when the project is used; there is no background scheduler. Existing installations need the manual update below once to receive these instructions.
+
+You can also give [`UPDATE.md`](./UPDATE.md) to your coding agent and ask it to update the scaffold immediately.
 
 Copy-paste prompt:
 
@@ -26,7 +28,7 @@ Copy-paste prompt:
 Fetch https://raw.githubusercontent.com/Kramoon/agent-scaffold/main/UPDATE.md and follow its instructions to update the agent-scaffold baseline in this repository.
 ```
 
-Prefer to do it by hand? `git submodule update --remote .agent-scaffold` pulls the latest commit. If you're on the Claude-only import path, that's the whole update. If you're on the copy path, also refresh the content above the `## Project-specific additions` heading in `AGENTS.md` with the new `.agent-scaffold/AGENTS.md`, and reapply any edits that got overwritten.
+Prefer to do it by hand? Follow the checks in `UPDATE.md`, then run `git submodule update --remote .agent-scaffold`. If you're on the Claude-only import path, that's the whole update. If you're on the copy path, also refresh the content above the `## Project-specific additions` heading in `AGENTS.md` with the new `.agent-scaffold/AGENTS.md`, preserving your project-specific additions.
 
 ## Adding project-specific rules
 

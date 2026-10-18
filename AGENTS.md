@@ -4,6 +4,10 @@ Baseline instructions for AI coding agents (Claude Code, Codex, and others) work
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
 
+## Scaffold Updates
+
+When this baseline is installed as a `.agent-scaffold` submodule, check for updates when starting work in the project if the last successful check was at least seven days ago. Read the last successful check as a Unix timestamp from the per-checkout file named by `git rev-parse --git-path agent-scaffold-last-check`. If it is missing or at least 604800 seconds old, follow the automatic-update steps in `.agent-scaffold/UPDATE.md`. After a successful check, write the current Unix timestamp to that file. Do not record a failed or skipped check. This is an agent-driven check when the project is used, not a background scheduler.
+
 ## 1. Docker Only — Project Code Never Runs on the Host
 
 **The project's own code, dependencies, and tooling never touch the host. Only they run inside Docker.**
@@ -109,8 +113,8 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `build`, `ci`, `perf`.
 - Breaking changes: append `!` after the type/scope, or add a `BREAKING CHANGE:` footer.
 - Description is imperative mood, lowercase, no trailing period.
-- Before committing, stop and show the user the proposed commit message and the list of files staged. Get explicit confirmation before running `git commit`.
-- Before pushing, stop and get explicit confirmation from the user. Never run `git push` unprompted.
+- Before committing, stop and show the user the proposed commit message and the list of files staged. If the requested workflow includes a push, also show its destination. Get explicit confirmation before running `git commit`.
+- That confirmation also authorizes pushing the confirmed commit to the stated destination as part of the requested workflow; no second confirmation is needed. Do not treat it as authorization to push other commits or to a different destination.
 
 ### Agent attribution
 
