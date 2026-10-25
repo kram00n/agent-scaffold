@@ -11,7 +11,7 @@ Give [`SETUP.md`](./SETUP.md) to your coding agent — paste its contents, or po
 Copy-paste prompt:
 
 ```
-Fetch https://raw.githubusercontent.com/Kramoon/agent-scaffold/main/SETUP.md and follow its instructions to install the agent-scaffold baseline into this repository.
+Fetch https://raw.githubusercontent.com/kram00n/agent-scaffold/main/SETUP.md and follow its instructions to install the agent-scaffold baseline into this repository.
 ```
 
 Prefer to do it by hand? `SETUP.md` is plain markdown with the exact commands — open it and follow along yourself.
@@ -25,7 +25,7 @@ You can also give [`UPDATE.md`](./UPDATE.md) to your coding agent and ask it to 
 Copy-paste prompt:
 
 ```
-Fetch https://raw.githubusercontent.com/Kramoon/agent-scaffold/main/UPDATE.md and follow its instructions to update the agent-scaffold baseline in this repository.
+Fetch https://raw.githubusercontent.com/kram00n/agent-scaffold/main/UPDATE.md and follow its instructions to update the agent-scaffold baseline in this repository.
 ```
 
 Prefer to do it by hand? Follow the checks in `UPDATE.md`, then run `git submodule update --remote .agent-scaffold`. If you're on the Claude-only import path, that's the whole update. If you're on the copy path, also refresh the content above the `## Project-specific additions` heading in `AGENTS.md` with the new `.agent-scaffold/AGENTS.md`, preserving your project-specific additions.
